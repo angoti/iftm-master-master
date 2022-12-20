@@ -1,6 +1,6 @@
 <html th:include="template :: modelo">
     <div th:fragment="conteudo">
-        <div class="container">
+        <div class="container my-5">
             <form th:action="@{/cadastrarpro}" method="post" th:object="${promocao}" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome Produto</label>

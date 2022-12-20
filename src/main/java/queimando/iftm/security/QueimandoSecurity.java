@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -34,10 +35,10 @@ public class QueimandoSecurity {
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http.authorizeHttpRequests(authorize -> authorize
-        .antMatchers("/", "/home", "/css/**", "/img/**", "/image-upload/**").permitAll()
-        .anyRequest().authenticated())
-        .formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/home").permitAll())
-        .logout().logoutSuccessUrl("/");
+            .antMatchers("/", "/home", "/css/**", "/img/**", "/image-upload/**").permitAll()
+            .anyRequest().authenticated())
+            .formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/home").permitAll())
+            .logout().logoutSuccessUrl("/");
     return http.build();
   }
 }

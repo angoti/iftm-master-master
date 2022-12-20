@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.Instant;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +33,7 @@ public class ProdutoController {
     @PostMapping("cadastrarpro")
     public String gravaNovaPromo(Produto produto, @RequestParam MultipartFile arquivo) throws IOException, URISyntaxException {
         Path root = Paths.get("src/main/resources/static/image-upload");
-        String nomeArquivo = arquivo.getOriginalFilename();
+        String nomeArquivo = arquivo.getOriginalFilename().replace(".", new StringBuffer(Math.abs(Instant.now().hashCode()) + "."));
         Files.copy(arquivo.getInputStream(), root.resolve(nomeArquivo));
         produto.setFoto(nomeArquivo);
         repository.save(produto);
