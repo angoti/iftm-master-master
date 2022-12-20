@@ -7,14 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cadastrar {
-    private int id;
-
-    private String nomep;
-
-    private float preco;
-
-    private String foto;
-
-    private String endereco;
+public class Usuario {
+  private Long id;
+  private String email, senha, papeis;
 }
