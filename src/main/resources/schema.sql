@@ -1,4 +1,7 @@
-CREATE TABLE produto (
+CREATE SCHEMA IF NOT EXISTS `bd` DEFAULT CHARACTER SET utf8mb4 ;
+USE `bd` ;
+
+CREATE TABLE IF NOT EXISTS produto (
   cod_produto int AUTO_INCREMENT,
   nome_produto varchar(20),
   preço float,
@@ -8,8 +11,6 @@ CREATE TABLE produto (
   foreign key(id) references usuarios(usuario_id),
   PRIMARY KEY (cod_produto)
 );
-
-
 
 CREATE TABLE IF NOT EXISTS `papeis` (
   `papel_id` INT(11) NOT NULL AUTO_INCREMENT,
