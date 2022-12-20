@@ -32,6 +32,9 @@ public class ProdutoController {
 
     @PostMapping("cadastrarpro")
     public String gravaNovaPromo(Produto produto, @RequestParam MultipartFile arquivo) throws IOException, URISyntaxException {
+        System.out.println("----------------------------------------");
+        System.out.println(arquivo.getOriginalFilename());
+        System.out.println(arquivo.getInputStream().toString());
         Path root = Paths.get("src/main/resources/static/image-upload");
         String nomeArquivo = arquivo.getOriginalFilename().replace(".", new StringBuffer(Math.abs(Instant.now().hashCode()) + "."));
         Files.copy(arquivo.getInputStream(), root.resolve(nomeArquivo));
