@@ -16,7 +16,7 @@
                 </div>
                 <div class="col" th:each="p : ${lista}">
                     <div class="card">
-                        <img th:src="|image-upload/${p.foto}|" class="card-img-top" style="height: 200px; width: auto; object-fit: scale-down;">
+                        <img th:src="|https://storage.googleapis.com/queimando-d707b.appspot.com/${p.foto}|" class="card-img-top" style="height: 200px; width: auto; object-fit: scale-down;">
                         <div class="card-body">
                             <h5 class="card-title">Produto X</h5>
                             <p class="card-text">Valor X</p>
